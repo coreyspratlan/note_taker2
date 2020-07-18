@@ -10,7 +10,7 @@ const newNote = [];
 // const server = http.createServer(handleRequest);
 
 // Sets up the Express app to handle data parsing
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('/public'));
 app.use(express.json());
 
 app.get('/', function (req, res) {

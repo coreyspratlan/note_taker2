@@ -1,16 +1,19 @@
+// const http = require("http");
 const express = require("express");
 const path = require("path");
-// const fs = require("fs");
+const fs = require("fs");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+const note = [];
 // const noteList = [];
 // const noteId = [];
 
 // const server = http.createServer(handleRequest);
 
 // Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(express.json());
 
@@ -33,7 +36,10 @@ app.get("/api/notes", function (req, res) {
 app.post("/api/notes", function (req, res) {
     note.push(req.body);
     res.json(true);
+    console.log(req.body);
  });
+
+
 
 // //     let newNote = req.body;
 // //     // if (notes.length ) {
@@ -48,3 +54,7 @@ app.post("/api/notes", function (req, res) {
 app.listen(PORT, function () {
     console.log("App listening on PORT: ", PORT);
 });
+
+
+
+
